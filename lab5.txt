@@ -22,7 +22,7 @@ print("days with above avg steps:\n", data[data>avgsteps])
 
 
 Steps walked each day:
- Monday       3000
+Monday       3000
 Tuesday      4000
 Wednesday    5000
 Thursday     6000
@@ -32,14 +32,14 @@ Sunday       9000
 dtype: int64
 total steps walked in the week: 42000
 highest steps:
- 9000 on Sunday
+9000 on Sunday
 lowest steps:
- 3000 on Monday
+3000 on Monday
 days with more than 8000 steps:
- Sunday    9000
+Sunday    9000
 dtype: int64
 Steps converted to kilometers:
- Monday       2.4
+Monday       2.4
 Tuesday      3.2
 Wednesday    4.0
 Thursday     4.8
@@ -48,7 +48,7 @@ Saturday     6.4
 Sunday       7.2
 dtype: float64
 days with above avg steps:
- Friday      7000
+Friday      7000
 Saturday    8000
 Sunday      9000
 dtype: int64
@@ -74,7 +74,7 @@ print("temprature is farenheit:\n", farenheit)
 print ("days with temprature above avg:\n" , data[data>avgtemp])
 
 tempratures:
- Monday       29
+Monday       29
 Tuesday      30
 Wednesday    25
 Thursday     26
@@ -83,17 +83,17 @@ Saturday     27
 Sunday       28
 dtype: int64
 average temprature:
- 27.0
+27.0
 maximum temprature:
- 30 on Tuesday
+30 on Tuesday
 minimum tempratures:
- 24 on Friday
+24 on Friday
 tempratures above 28 degrees:
- Monday     29
+Monday     29
 Tuesday    30
 dtype: int64
 temprature is farenheit:
- Monday       84.2
+Monday       84.2
 Tuesday      86.0
 Wednesday    77.0
 Thursday     78.8
@@ -102,7 +102,7 @@ Saturday     80.6
 Sunday       82.4
 dtype: float64
 days with temprature above avg:
- Monday     29
+Monday     29
 Tuesday    30
 Sunday     28
 dtype: int64
@@ -131,3 +131,38 @@ print("student with highest marks:\n", df.loc[df["average"].idxmax(), "name"])
 
 count = (df["marks2"]<40).sum()
 print("the count of failed students is:\n", count)
+
+**output**
+   roll number    name gender  marks1  marks2  marks3
+0            1   name1      m      80      39      68
+1            2   name2      f      31      83      20
+2            3   name3      m      82      36      62
+3            4   name4      f      43      85      54
+4            5   name5      m      84      87      76
+5            6   name6      f      65      83      78
+6            7   name7      m      86      12      80
+7            8   name8      f      87      95      72
+8            9   name9      m      22      50      84
+9           10  name10      f      89      79      46
+with total marks:
+    roll number    name gender  marks1  marks2  marks3  total
+0            1   name1      m      80      39      68    119
+1            2   name2      f      31      83      20    114
+2            3   name3      m      82      36      62    118
+3            4   name4      f      43      85      54    128
+4            5   name5      m      84      87      76    171
+5            6   name6      f      65      83      78    148
+6            7   name7      m      86      12      80     98
+7            8   name8      f      87      95      72    182
+8            9   name9      m      22      50      84     72
+9           10  name10      f      89      79      46    168
+lowest marks on marks1:
+22
+highest marks on marks2:
+95
+average marks on marks3:
+64.0
+student with highest marks:
+name8
+the count of failed students is:
+3
