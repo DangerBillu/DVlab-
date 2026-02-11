@@ -132,7 +132,7 @@ print("student with highest marks:\n", df.loc[df["average"].idxmax(), "name"])
 count = (df["marks2"]<40).sum()
 print("the count of failed students is:\n", count)
 
-**output**
+
    roll number    name gender  marks1  marks2  marks3
 0            1   name1      m      80      39      68
 1            2   name2      f      31      83      20
@@ -166,3 +166,4 @@ student with highest marks:
 name8
 the count of failed students is:
 3
+
