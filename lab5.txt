@@ -1,0 +1,133 @@
+import pandas as pd
+
+steps= [3000, 4000, 5000, 6000, 7000, 8000, 9000]
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+data = pd.Series(steps, index=days)
+print("Steps walked each day:\n", data)
+
+totalsteps = data.sum()
+print("total steps walked in the week:", totalsteps)
+
+print("highest steps:\n", data.max(), "on", data.idxmax())
+print("lowest steps:\n", data.min(), "on", data.idxmin())
+
+print("days with more than 8000 steps:\n", data[data>8000])
+
+km = data/1250
+print("Steps converted to kilometers:\n", km)
+
+avgsteps = data.mean()
+print("days with above avg steps:\n", data[data>avgsteps])
+
+
+Steps walked each day:
+ Monday       3000
+Tuesday      4000
+Wednesday    5000
+Thursday     6000
+Friday       7000
+Saturday     8000
+Sunday       9000
+dtype: int64
+total steps walked in the week: 42000
+highest steps:
+ 9000 on Sunday
+lowest steps:
+ 3000 on Monday
+days with more than 8000 steps:
+ Sunday    9000
+dtype: int64
+Steps converted to kilometers:
+ Monday       2.4
+Tuesday      3.2
+Wednesday    4.0
+Thursday     4.8
+Friday       5.6
+Saturday     6.4
+Sunday       7.2
+dtype: float64
+days with above avg steps:
+ Friday      7000
+Saturday    8000
+Sunday      9000
+dtype: int64
+==============================================================================================================================================================================
+import pandas as pd
+
+temps= [29, 30, 25, 26, 24, 27, 28]
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+data = pd.Series(temps, index = days)
+print("tempratures:\n", data)
+
+avgtemp = data.mean()
+print("average temprature:\n", avgtemp)
+
+print("maximum temprature:\n", data.max(), "on", data.idxmax())
+print("minimum tempratures:\n", data.min(), "on", data.idxmin())
+
+print("tempratures above 28 degrees:\n", data[data>28])
+
+farenheit= (data* 9/5)+32
+print("temprature is farenheit:\n", farenheit)
+
+print ("days with temprature above avg:\n" , data[data>avgtemp])
+
+tempratures:
+ Monday       29
+Tuesday      30
+Wednesday    25
+Thursday     26
+Friday       24
+Saturday     27
+Sunday       28
+dtype: int64
+average temprature:
+ 27.0
+maximum temprature:
+ 30 on Tuesday
+minimum tempratures:
+ 24 on Friday
+tempratures above 28 degrees:
+ Monday     29
+Tuesday    30
+dtype: int64
+temprature is farenheit:
+ Monday       84.2
+Tuesday      86.0
+Wednesday    77.0
+Thursday     78.8
+Friday       75.2
+Saturday     80.6
+Sunday       82.4
+dtype: float64
+days with temprature above avg:
+ Monday     29
+Tuesday    30
+Sunday     28
+dtype: int64
+==============================================================================================================================================================================
+import pandas as pd
+data = {
+    "roll number": [1,2,3,4,5,6,7,8,9,10], 
+    "name": ["name1","name2","name3","name4","name5","name6","name7","name8","name9","name10"],
+    "gender": ["m", "f", "m", "f","m", "f", "m", "f", "m", "f" ],
+    "marks1": [80, 31, 82, 43, 84, 65, 86, 87, 22, 89], 
+    "marks2": [39, 83, 36, 85, 87, 83, 12, 95, 50, 79], 
+    "marks3": [68, 20, 62, 54, 76, 78, 80, 72, 84, 46], 
+}
+df= pd.DataFrame(data)
+print(df)
+
+df["total"]= df["marks1"]+df["marks2"]
+print("with total marks:\n", df)
+
+print("lowest marks on marks1:\n", df["marks1"].min())
+print("highest marks on marks2:\n", df["marks2"].max())
+print("average marks on marks3:\n", df["marks3"].mean())
+
+df["average"]= (df["total"])/3
+print("student with highest marks:\n", df.loc[df["average"].idxmax(), "name"])
+
+count = (df["marks2"]<40).sum()
+print("the count of failed students is:\n", count)
